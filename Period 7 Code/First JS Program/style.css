@@ -1,0 +1,11 @@
+body{
+	background-color: cyan;
+}
+input{
+	border: 2px red solid;
+}
+div{
+	color:white;
+	background-color: purple;
+	font-family: "Courier New", "Monospace"
+}
