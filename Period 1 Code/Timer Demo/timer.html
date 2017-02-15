@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Timer Example</title>
+	<script>
+		var curTime = 20;
+		function startTimer(){
+			window.setInterval(decreaseTime, 1000)		//what we want
+			window.setInterval(decreaseTime(), 1000)	//wrong
+		}
+		function decreaseTime(){
+			curTime--;
+			console.log(curTime)
+		}
+	</script>
+</head>
+<body>
+	<button onclick="startTimer()">Start the Timer!</button>
+	<div id='timeLeft'>20</div>
+</body>
+</html>
