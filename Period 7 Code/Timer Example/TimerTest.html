@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Fun With Timers</title>
+	<script>
+		var curTime = 20;
+		function startTimer(){
+			console.log("button clicked");
+			window.setInterval(decrementTime, 1000);
+		}
+		function decrementTime(){
+			console.log("decrementTime was called");
+			curTime--;
+			document.getElementById("outputDiv").innerHTML = curTime;
+		}
+	</script>
+</head>
+<body>
+	<button onclick="startTimer()">Click to Start Timer! :)</button>
+	<div id="outputDiv">20</div>
+</body>
+</html>
