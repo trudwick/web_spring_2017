@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Page Load Demo</title>
+	<script>
+		var myArr = ["Happy", "Dopey", "Sleepy", "Sneezy", "Bashful", "Grumpy", "Doc"];
+		window.onload=function(){
+			console.log("Page has loaded!")
+			document.getElementById("whatToGrab").innerHTML="This is a div";
+
+			for(var k=0; k<myArr.length; k++)
+			{
+				//create Div Tag
+				var newDiv=document.createElement("div")
+				//Give it the correct string
+				newDiv.innerHTML = myArr[k];
+				//Add that div tag into theDwarves
+				document.getElementById("theDwarves").appendChild(newDiv);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="whatToGrab"></div>
+	<div id="theDwarves">
+	</div>
+</body>
+</html>
