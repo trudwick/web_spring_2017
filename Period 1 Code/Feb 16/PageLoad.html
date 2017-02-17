@@ -2,11 +2,13 @@
 <head>
 	<title>Page Load Demo</title>
 	<script>
+		//array of data
 		var myArr = ["Happy", "Dopey", "Sleepy", "Sneezy", "Bashful", "Grumpy", "Doc"];
+		//HTML Loaded top to bottom
 		window.onload=function(){
 			console.log("Page has loaded!")
 			document.getElementById("whatToGrab").innerHTML="This is a div";
-
+			//loop over our array
 			for(var k=0; k<myArr.length; k++)
 			{
 				//create Div Tag
