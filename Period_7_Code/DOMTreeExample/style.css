@@ -1,0 +1,11 @@
+body{
+    background-color: #b9e8f7;
+}
+div{
+    background-color: #cdc7db;
+}
+div div{
+    background-color: #afc1aa;
+    margin: 5px;
+    margin-left: 25px;
+}

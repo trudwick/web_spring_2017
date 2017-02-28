@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Tree Demo</title>
+        <style type="text/css">
+            div{
+                margin: 4px;
+                background-color: green;
+                border-style: inset;
+            }
+            div div{
+                background-color: purple;
+            }
+            body{
+                background-color: #9999EE;
+            }
+        </style>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body onclick="wasClicked(event)">
+        <div>
+            1
+            <div>A</div>
+            <div>B</div>
+        </div>
+        <div>
+            2
+        </div>
+    </body>
+</html>
