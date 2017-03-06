@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grab Weather Data</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            function getWeather(){
+                //get the current zip code from input
+                var zip = $("#zipIn").val();
+                console.log(zip)
+                //call ajax
+                var myURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zip+",us&appid=cb661aaaa01dbaf4dbab6b297c379d6b"
+                $.ajax({
+                    url:myURL,
+                    success:function(data){
+                        console.log(data);
+                    }
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <input type="number" id='zipIn'>
+        <button onclick="getWeather()">Click me to query weather!</button>
+        <div id='output'></div>
+    </body>
+</html>

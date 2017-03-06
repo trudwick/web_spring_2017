@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First jQuery Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            console.log("test #1")
+            $(document).ready(function(){
+                // $("#div2").html("Hi 7th period")
+                // $("div").html("Happy Friday :).")
+                $("div").each(function(index, value){
+                    console.log(index, value)
+                    //Javascript solution
+                    //value.innerHTML=value.id;
+                    //jQuery Solution:
+                    $(value).html(value.id)
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+    </body>
+</html>
