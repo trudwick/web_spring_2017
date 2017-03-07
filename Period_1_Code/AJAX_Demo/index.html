@@ -9,12 +9,27 @@
                 var zip = $("#zipIn").val();
                 console.log(zip)
                 //call ajax
-                var myURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zip+",us&appid=cb661aaaa01dbaf4dbab6b297c379d6b"
+                var myURL = "http://api.openweathermap.org/data/2.5/weather"
+                var inputData={
+                    zip:zip+",us",
+                    appid:"c7d6cbb2fc552c1021b13b8e7e99d834"
+                }
                 $.ajax({
                     url:myURL,
                     success:function(data){
                         console.log(data);
-                    }
+                        // var tempInK = data.main.temp;
+                        // var tempInF = 9/5*(tempInK-273)+32;
+                        // $("#output").html(tempInF);
+                        var sunrise = data.sys.sunrise;
+                        console.log(sunrise)
+                        var dt = new Date(sunrise*1000)
+                        var hours = dt.getHours();
+                        var mins = dt.getMinutes();
+                        if(mins<10) mins="0"+mins;
+                        $("#output").html(hours+":"+mins);
+                    },
+                    data:inputData
                 })
             }
         </script>
