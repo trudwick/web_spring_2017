@@ -10,12 +10,29 @@
                 var myZip=$("#zipCode").val();
                 console.log(myZip)
                 //send my ajax request
+                var data2Send = {
+                    zip:myZip+",us",
+                    appid:"cb661aaaa01dbaf4dbab6b297c379d6b"
+                }
                 $.ajax({
-                    url:"http://api.openweathermap.org/data/2.5/weather?zip="+myZip+",us&appid=cb661aaaa01dbaf4dbab6b297c379d6b",
+                    url:"http://api.openweathermap.org/data/2.5/weather",
                     success:function(response){
                         console.log(response);
-                    }
+                        var tempInK = response.main.temp;
+                        var tempInF = (tempInK-273)*9/5+32;
+                        $("#outputDiv").html(tempInF)
+                        displayTimes(response);
+                    },
+                    data:data2Send
                 })
+            }
+            function displayTimes(obj)
+            {
+                var sunrise = obj.sys.sunrise;
+                var dt = new Date(sunrise*1000);
+                var hours = dt.getHours();
+                var mins = dt.getMinutes();
+                $("#sunrise").html(hours+":"+mins)
             }
         </script>
     </head>
@@ -23,5 +40,6 @@
         <input id='zipCode' type='number'>
         <button onclick="sendRequest()">Send The Request</button>
         <div id='outputDiv'></div>
+        <div id="sunrise"></div>
     </body>
 </html>

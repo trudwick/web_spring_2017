@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 id="demoHeading"></h1>
+        <button onclick="update()">Click me</button>
+    </body>
+    
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCspqy2Cb0mKA14MnuVIbBEv_7WSDUOJGY",
+            authDomain: "doms-demo.firebaseapp.com",
+            databaseURL: "https://doms-demo.firebaseio.com",
+            storageBucket: "doms-demo.appspot.com",
+            messagingSenderId: "440477619648"
+        };
+        firebase.initializeApp(config);
+        function update(){
+            var firebaseRef = firebase.database().ref();
+            firebaseRef.child("updateData").set("demo demo");
+            
+            var demoHeading = document.getElementById("demoHeading")
+            demoHeading.innerHTML=firebaseRef.child("demoTitle").path
+                // co
+            // })
+            console.log(demoTitle)
+            demoHeading.innerHTML=demoTitle
+        }
+    </script>
+</html>
