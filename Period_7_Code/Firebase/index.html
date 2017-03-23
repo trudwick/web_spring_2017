@@ -14,11 +14,17 @@
             };
             firebase.initializeApp(config);
             
+            var user
             setUpGoogle()
+            console.log(user)
             
             var ep = firebase.database().ref("messages/");
             ep.on("value", function(snapshot){
                 console.log(snapshot.val())
+                $("#output").html("")
+                $.each(snapshot.val(), function(key, value) {
+                    $("#output").append("<div>" + value[0]+":"+value[1] + "</div>");
+                });   
             })
             function setUpGoogle(){
                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -29,7 +35,7 @@
                   // This gives you a Google Access Token. You can use it to access the Google API.
                   var token = result.credential.accessToken;
                   // The signed-in user info.
-                  var user = result.user;
+                  user = result.user;
                   // ...
                 }).catch(function(error) {
                     console.log("FAILURE");
@@ -46,11 +52,11 @@
             }
             function submitMsg(){
                 var msg = $("#message").val();
-                var user = $("#user").val();
+                $("#message").val("");
                 //ep.set()    //
                 var data2send = {};
                 var arr = [];
-                arr.push(user)
+                arr.push(user.displayName)
                 arr.push(msg)
                 data2send[Date.now()]=arr;
                 ep.update(data2send)
@@ -58,7 +64,6 @@
         </script>
     </head>
     <body>
-        <input type="text" id="user"/>
         <input type="text" id="message"/>
         <button onclick="submitMsg()">Submit</button>
         <div id="output"></div>
