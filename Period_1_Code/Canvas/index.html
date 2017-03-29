@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            canvas{
+                border:1px solid black;
+            }
+        </style>
+        <script type="text/javascript">
+            var ctx;
+            window.onload=function(){
+                var canv = document.getElementById("myCan");
+                ctx = canv.getContext("2d");
+                ctx.fillRect(20,20,200,100)
+            }
+            function clickedFun(evt)
+            {
+                console.log(evt)
+                var curX = evt.layerX;
+                var curY = evt.layerY;
+                ctx.fillRect(curX, curY, 5,5)
+            }
+        </script>
+    </head>
+
+    <body onclick="clickedFun(event)">
+        <canvas id="myCan" width="800" height="600"></canvas>
+    </body>
+</html>
