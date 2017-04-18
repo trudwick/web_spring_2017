@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+        <script>
+            var socket = io();
+            //emit a message
+            function buttonClicked(){
+                socket.emit("testMessage", {data: "my first test"})
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Mr. Rudwick's Awesome App</h1>
+        <input type="text" id="inputMsg"/>
+        <button onclick="buttonClicked()">Emit a message</button>
+        <div id="outputMessages">
+        </div>
+    </body>
+</html>
