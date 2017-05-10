@@ -13,6 +13,7 @@ io.on('connection',function(socket){
     console.log("hji")
     socket.on("testMessage", function(data){
         console.log(data)
+        io.emit("msgToClient",data)
     })
     //socket listen for button clicked
 })

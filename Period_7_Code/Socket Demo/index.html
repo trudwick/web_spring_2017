@@ -1,0 +1,20 @@
+<http>
+    <head>
+        <title>Socket Test Code</title>
+        <!--cdn for socket-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        <!--instantiate a socket element-->
+        <script>
+            var socket = io();
+            var clickCount = 0;
+            function emitAMessage(){
+                clickCount++;
+                socket.emit("buttonFromClient",{timesClicked:clickCount})
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Mr. Rudwick's awesome page</h1>
+        <button onclick="emitAMessage()">Count Clicks</button>
+    </body>
+</http>

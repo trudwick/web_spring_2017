@@ -2,12 +2,18 @@
 <html>
     <head>
         <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script>
             var socket = io();
             //emit a message
             function buttonClicked(){
-                socket.emit("testMessage", {data: "my first test"})
+                var dta = document.getElementById("inputMsg").value
+                socket.emit("testMessage", {data: dta})
             }
+            socket.on("msgToClient",function(data){
+                console.log(data)
+                $("#outputMessages").append("<div>"+data.data+"</div>")
+            })
         </script>
     </head>
     <body>
